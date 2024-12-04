@@ -17,10 +17,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   WeatherApi weatherApi = WeatherApi();
-  TommorowApi tommorowApi = TommorowApi();
   Weather? currentWeather;
   double? airQualityIndex;
-  TimelinesResponse? timelineRespone;
   bool isLoading = true;
   String location = 'Jakarta';
 
@@ -39,10 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
       final weather = await weatherApi.getWeather(city);
       final airQuality =
           await weatherApi.getAirQuality(weather.lat, weather.lon);
-      final tommorowRes = await tommorowApi.fetchWeatherData(location);
 
       setState(() {
-        timelineRespone = tommorowRes;
         currentWeather = weather;
         airQualityIndex = airQuality;
         isLoading = false;
@@ -59,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       isLoading = true;
     });
-    print(timelineRespone);
+
     try {
       Position position = await weatherApi.getLocation();
       final weather = await weatherApi.getWeatherByLocation(position);
