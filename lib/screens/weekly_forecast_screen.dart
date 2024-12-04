@@ -42,21 +42,22 @@ class _WeeklyForecastScreen extends State<WeeklyForecastScreen> {
     }
   }
 
-  String getWeatherColor(int weatherCode) {
+  Color getWeatherColor(int weatherCode) {
+    // Example mapping based on the weather code
     switch (weatherCode) {
       case 1001: // Clear sky
-        return "y";
+        return Colors.yellow;
       case 1002: // Partly cloudy
-        return Icons.cloud;
+        return Colors.blue;
       case 1003: // Cloudy
-        return Icons.cloud_queue;
-      case 1004: // Overcast
-        return Icons.cloud_off;
+        return Colors.grey;
+      // case 1004: // Overcast
+      //   return Colors.grey[800];
       // Add more cases based on your weather codes
       case 4200: // Light Rain
-        return Icons.umbrella;
+        return Colors.blue;
       default:
-        return Icons.help_outline;
+        return Colors.white;
     }
   }
 
@@ -157,7 +158,8 @@ class _WeeklyForecastScreen extends State<WeeklyForecastScreen> {
                                       Icon(
                                         getWeatherIcon(
                                             day.values.weatherCodeMax),
-                                        color: Colors.yellowAccent,
+                                        color: getWeatherColor(
+                                            day.values.weatherCodeMax),
                                         size: 30,
                                       ),
                                       const SizedBox(width: 15),
