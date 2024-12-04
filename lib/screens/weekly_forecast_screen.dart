@@ -22,7 +22,8 @@ class WeeklyForecastScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Center( // Center the text
+            const Center(
+              // Center the text
               child: Text(
                 "Weekly Forecast",
                 style: TextStyle(
@@ -36,13 +37,48 @@ class WeeklyForecastScreen extends StatelessWidget {
             Column(
               children: [
                 for (var day in [
-                  {'day': 'Today', 'tempMin': 56, 'tempMax': 79, 'icon': Icons.wb_sunny},
-                  {'day': 'Tue', 'tempMin': 55, 'tempMax': 71, 'icon': Icons.wb_sunny},
-                  {'day': 'Wed', 'tempMin': 46, 'tempMax': 68, 'icon': Icons.wb_sunny},
-                  {'day': 'Thu', 'tempMin': 55, 'tempMax': 71, 'icon': Icons.wb_sunny},
-                  {'day': 'Fri', 'tempMin': 55, 'tempMax': 71, 'icon': Icons.wb_sunny},
-                  {'day': 'Sat', 'tempMin': 46, 'tempMax': 66, 'icon': Icons.wb_sunny},
-                  {'day': 'Sun', 'tempMin': 23, 'tempMax': 35, 'icon': Icons.wb_sunny},
+                  {
+                    'day': 'Today',
+                    'tempMin': 56,
+                    'tempMax': 79,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Tue',
+                    'tempMin': 55,
+                    'tempMax': 71,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Wed',
+                    'tempMin': 46,
+                    'tempMax': 68,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Thu',
+                    'tempMin': 55,
+                    'tempMax': 71,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Fri',
+                    'tempMin': 55,
+                    'tempMax': 71,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Sat',
+                    'tempMin': 46,
+                    'tempMax': 66,
+                    'icon': Icons.wb_sunny
+                  },
+                  {
+                    'day': 'Sun',
+                    'tempMin': 23,
+                    'tempMax': 35,
+                    'icon': Icons.wb_sunny
+                  },
                 ])
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 8),
@@ -94,6 +130,3 @@ class WeeklyForecastScreen extends StatelessWidget {
     );
   }
 }
-
-
-

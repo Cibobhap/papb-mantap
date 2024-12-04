@@ -46,26 +46,27 @@ class GetStartedScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 60),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     Navigator.pushReplacementNamed(context, '/home');
-            //   },
-            //   style: ElevatedButton.styleFrom(
-            //     foregroundColor: Colors.blue,
-            //     backgroundColor: Colors.white,
-            //     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(30),
-            //     ),
-            //   ),
-            //   child: const Text(
-            //     'Get Started',
-            //     style: TextStyle(
-            //       fontSize: 20,
-            //       fontWeight: FontWeight.bold,
-            //     ),
-            //   ),
-            // ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                backgroundColor: Colors.white,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: const Text(
+                'Get Started',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       ),

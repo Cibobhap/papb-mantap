@@ -1,5 +1,6 @@
 // home_screen.dart
 import 'package:flutter/material.dart';
+import 'package:weather/models/forecast_model.dart';
 import 'package:weather/screens/weekly_forecast_screen.dart';
 import 'package:weather/services/weather_api.dart';
 import 'package:weather/models/weather_model.dart';
@@ -16,8 +17,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   WeatherApi weatherApi = WeatherApi();
+  TommorowApi tommorowApi = TommorowApi();
   Weather? currentWeather;
   double? airQualityIndex;
+  TimelinesResponse? timelineRespone;
   bool isLoading = true;
   String location = 'Jakarta';
 
@@ -34,9 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
     try {
       final weather = await weatherApi.getWeather(city);
-      final airQuality = await weatherApi.getAirQuality(weather.lat, weather.lon);
+      final airQuality =
+          await weatherApi.getAirQuality(weather.lat, weather.lon);
+      final tommorowRes = await tommorowApi.fetchWeatherData(location);
 
       setState(() {
+        timelineRespone = tommorowRes;
         currentWeather = weather;
         airQualityIndex = airQuality;
         isLoading = false;
@@ -53,11 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       isLoading = true;
     });
-
+    print(timelineRespone);
     try {
       Position position = await weatherApi.getLocation();
       final weather = await weatherApi.getWeatherByLocation(position);
-      final airQuality = await weatherApi.getAirQuality(position.latitude, position.longitude);
+      final airQuality =
+          await weatherApi.getAirQuality(position.latitude, position.longitude);
 
       setState(() {
         currentWeather = weather;
@@ -98,7 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
           : currentWeather != null
               ? SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -113,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius: BorderRadius.circular(20),
                                 borderSide: BorderSide.none,
                               ),
-                              suffixIcon: const Icon(Icons.search, color: Colors.blueAccent),
+                              suffixIcon: const Icon(Icons.search,
+                                  color: Colors.blueAccent),
                             ),
                             onSubmitted: (value) {
                               if (value.isNotEmpty) {
@@ -127,7 +136,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             gradient: const LinearGradient(
-                              colors: [Colors.blueAccent, Colors.lightBlueAccent],
+                              colors: [
+                                Colors.blueAccent,
+                                Colors.lightBlueAccent
+                              ],
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                             ),
@@ -167,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Image.network(
                                     'https://openweathermap.org/img/wn/${currentWeather!.icon}@2x.png',
                                     width: 25,
-                                    height:25,
+                                    height: 25,
                                   ),
                                   const SizedBox(width: 10),
                                   Text(
@@ -205,40 +217,70 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 "Hourly forecast",
                                 style: TextStyle(
-                                    fontSize: 16, // Reduce font size to save space
+                                    fontSize:
+                                        16, // Reduce font size to save space
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
                               ),
                               SizedBox(height: 10),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     children: [
-                                      Text('12 PM', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                                      Icon(Icons.wb_sunny, color: Colors.orange, size: 20),
-                                      Text('29°C', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      Text('12 PM',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12)),
+                                      Icon(Icons.wb_sunny,
+                                          color: Colors.orange, size: 20),
+                                      Text('29°C',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 14)),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      Text('2 PM', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                                      Icon(Icons.wb_cloudy, color: Colors.blueGrey, size: 20),
-                                      Text('27°C', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      Text('2 PM',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12)),
+                                      Icon(Icons.wb_cloudy,
+                                          color: Colors.blueGrey, size: 20),
+                                      Text('27°C',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 14)),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      Text('4 PM', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                                      Icon(Icons.wb_cloudy, color: Colors.blueGrey, size: 20),
-                                      Text('26°C', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      Text('4 PM',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12)),
+                                      Icon(Icons.wb_cloudy,
+                                          color: Colors.blueGrey, size: 20),
+                                      Text('26°C',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 14)),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      Text('6 PM', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                                      Icon(Icons.nights_stay, color: Colors.blue, size: 20),
-                                      Text('24°C', style: TextStyle(color: Colors.white, fontSize: 14)),
+                                      Text('6 PM',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 12)),
+                                      Icon(Icons.nights_stay,
+                                          color: Colors.blue, size: 20),
+                                      Text('24°C',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 14)),
                                     ],
                                   ),
                                 ],
@@ -252,7 +294,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const WeeklyForecastScreen(),
+                                builder: (context) =>
+                                    const WeeklyForecastScreen(),
                               ),
                             );
                           },
@@ -268,26 +311,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   "Weekly Forecast",
                                   style: TextStyle(
-                                    fontSize: 18, // Reduce font size to save space
+                                    fontSize:
+                                        18, // Reduce font size to save space
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 SizedBox(height: 10),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       'Click to see the full forecast',
                                       style: TextStyle(
                                         color: Colors.white70,
-                                        fontSize: 14, 
+                                        fontSize: 14,
                                       ),
                                     ),
                                     Icon(
                                       Icons.arrow_forward,
                                       color: Colors.white,
-                                      size: 20, 
+                                      size: 20,
                                     ),
                                   ],
                                 ),
@@ -314,22 +359,33 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const SizedBox(height: 10),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     children: [
-                                      const Text('Sunrise', style: TextStyle(color: Colors.white70, fontSize: 16)),
+                                      const Text('Sunrise',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 16)),
                                       const SizedBox(height: 5),
                                       Text(formatTime(currentWeather!.sunrise),
-                                          style: const TextStyle(color: Colors.white, fontSize: 16)),
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16)),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      const Text('Sunset', style: TextStyle(color: Colors.white70, fontSize: 16)),
+                                      const Text('Sunset',
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 16)),
                                       const SizedBox(height: 5),
                                       Text(formatTime(currentWeather!.sunset),
-                                          style: const TextStyle(color: Colors.white, fontSize: 16)),
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16)),
                                     ],
                                   ),
                                 ],

@@ -19,7 +19,7 @@ class MyWeatherApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const GetStartedScreen(),
-        // '/home': (context) => const HomeScreen(),
+        '/home': (context) => const HomeScreen(),
       },
     );
   }
