@@ -22,7 +22,7 @@ class DailyTimeline {
 
   factory DailyTimeline.fromJson(Map<String, dynamic> json) {
     return DailyTimeline(
-      time: json['time'],
+      time: (json['time'] ?? 0.0),
       values: WeatherValues.fromJson(json['values']),
     );
   }
@@ -227,277 +227,277 @@ class WeatherValues {
     return WeatherValues(
       cloudBaseAvg: (json['cloudBaseAvg'] is int)
           ? (json['cloudBaseAvg'] as int).toDouble()
-          : json['cloudBaseAvg'],
+          : (json['cloudBaseAvg'] ?? 0.0),
       cloudBaseMax: (json['cloudBaseMax'] is int)
           ? (json['cloudBaseMax'] as int).toDouble()
-          : json['cloudBaseMax'],
+          : (json['cloudBaseMax'] ?? 0.0),
       cloudBaseMin: (json['cloudBaseMin'] is int)
           ? (json['cloudBaseMin'] as int).toDouble()
-          : json['cloudBaseMin'],
+          : (json['cloudBaseMin'] ?? 0.0),
       cloudCeilingAvg: (json['cloudCeilingAvg'] is int)
           ? (json['cloudCeilingAvg'] as int).toDouble()
-          : json['cloudCeilingAvg'],
+          : (json['cloudCeilingAvg'] ?? 0.0),
       cloudCeilingMax: (json['cloudCeilingMax'] is int)
           ? (json['cloudCeilingMax'] as int).toDouble()
-          : json['cloudCeilingMax'],
+          : (json['cloudCeilingMax'] ?? 0.0),
       cloudCeilingMin: (json['cloudCeilingMin'] is int)
           ? (json['cloudCeilingMin'] as int).toDouble()
-          : json['cloudCeilingMin'],
+          : (json['cloudCeilingMin'] ?? 0.0),
       cloudCoverAvg: (json['cloudCoverAvg'] is int)
           ? (json['cloudCoverAvg'] as int).toDouble()
-          : json['cloudCoverAvg'],
+          : (json['cloudCoverAvg'] ?? 0.0),
       cloudCoverMax: (json['cloudCoverMax'] is int)
           ? (json['cloudCoverMax'] as int).toDouble()
-          : json['cloudCoverMax'],
+          : (json['cloudCoverMax'] ?? 0.0),
       cloudCoverMin: (json['cloudCoverMin'] is int)
           ? (json['cloudCoverMin'] as int).toDouble()
-          : json['cloudCoverMin'],
+          : (json['cloudCoverMin'] ?? 0.0),
       dewPointAvg: (json['dewPointAvg'] is int)
           ? (json['dewPointAvg'] as int).toDouble()
-          : json['dewPointAvg'],
+          : (json['dewPointAvg'] ?? 0.0),
       dewPointMax: (json['dewPointMax'] is int)
           ? (json['dewPointMax'] as int).toDouble()
-          : json['dewPointMax'],
+          : (json['dewPointMax'] ?? 0.0),
       dewPointMin: (json['dewPointMin'] is int)
           ? (json['dewPointMin'] as int).toDouble()
-          : json['dewPointMin'],
+          : (json['dewPointMin'] ?? 0.0),
       evapotranspirationAvg: (json['evapotranspirationAvg'] is int)
           ? (json['evapotranspirationAvg'] as int).toDouble()
-          : json['evapotranspirationAvg'],
+          : (json['evapotranspirationAvg'] ?? 0.0),
       evapotranspirationMax: (json['evapotranspirationMax'] is int)
           ? (json['evapotranspirationMax'] as int).toDouble()
-          : json['evapotranspirationMax'],
+          : (json['evapotranspirationMax'] ?? 0.0),
       evapotranspirationMin: (json['evapotranspirationMin'] is int)
           ? (json['evapotranspirationMin'] as int).toDouble()
-          : json['evapotranspirationMin'],
+          : (json['evapotranspirationMin'] ?? 0.0),
       evapotranspirationSum: (json['evapotranspirationSum'] is int)
           ? (json['evapotranspirationSum'] as int).toDouble()
-          : json['evapotranspirationSum'],
+          : (json['evapotranspirationSum'] ?? 0.0),
       freezingRainIntensityAvg: (json['freezingRainIntensityAvg'] is int)
           ? (json['freezingRainIntensityAvg'] as int).toDouble()
-          : json['freezingRainIntensityAvg'],
+          : (json['freezingRainIntensityAvg'] ?? 0.0),
       freezingRainIntensityMax: (json['freezingRainIntensityMax'] is int)
           ? (json['freezingRainIntensityMax'] as int).toDouble()
-          : json['freezingRainIntensityMax'],
+          : (json['freezingRainIntensityMax'] ?? 0.0),
       freezingRainIntensityMin: (json['freezingRainIntensityMin'] is int)
           ? (json['freezingRainIntensityMin'] as int).toDouble()
-          : json['freezingRainIntensityMin'],
+          : (json['freezingRainIntensityMin'] ?? 0.0),
       humidityAvg: (json['humidityAvg'] is int)
           ? (json['humidityAvg'] as int).toDouble()
-          : json['humidityAvg'],
+          : (json['humidityAvg'] ?? 0.0),
       humidityMax: (json['humidityMax'] is int)
           ? (json['humidityMax'] as int).toDouble()
-          : json['humidityMax'],
+          : (json['humidityMax'] ?? 0.0),
       humidityMin: (json['humidityMin'] is int)
           ? (json['humidityMin'] as int).toDouble()
-          : json['humidityMin'],
+          : (json['humidityMin'] ?? 0.0),
       iceAccumulationAvg: (json['iceAccumulationAvg'] is int)
           ? (json['iceAccumulationAvg'] as int).toDouble()
-          : json['iceAccumulationAvg'],
+          : (json['iceAccumulationAvg'] ?? 0.0),
       iceAccumulationLweAvg: (json['iceAccumulationLweAvg'] is int)
           ? (json['iceAccumulationLweAvg'] as int).toDouble()
-          : json['iceAccumulationLweAvg'],
+          : (json['iceAccumulationLweAvg'] ?? 0.0),
       iceAccumulationLweMax: (json['iceAccumulationLweMax'] is int)
           ? (json['iceAccumulationLweMax'] as int).toDouble()
-          : json['iceAccumulationLweMax'],
+          : (json['iceAccumulationLweMax'] ?? 0.0),
       iceAccumulationLweMin: (json['iceAccumulationLweMin'] is int)
           ? (json['iceAccumulationLweMin'] as int).toDouble()
-          : json['iceAccumulationLweMin'],
+          : (json['iceAccumulationLweMin'] ?? 0.0),
       iceAccumulationLweSum: (json['iceAccumulationLweSum'] is int)
           ? (json['iceAccumulationLweSum'] as int).toDouble()
-          : json['iceAccumulationLweSum'],
+          : (json['iceAccumulationLweSum'] ?? 0.0),
       iceAccumulationMax: (json['iceAccumulationMax'] is int)
           ? (json['iceAccumulationMax'] as int).toDouble()
-          : json['iceAccumulationMax'],
+          : (json['iceAccumulationMax'] ?? 0.0),
       iceAccumulationMin: (json['iceAccumulationMin'] is int)
           ? (json['iceAccumulationMin'] as int).toDouble()
-          : json['iceAccumulationMin'],
+          : (json['iceAccumulationMin'] ?? 0.0),
       iceAccumulationSum: (json['iceAccumulationSum'] is int)
           ? (json['iceAccumulationSum'] as int).toDouble()
-          : json['iceAccumulationSum'],
+          : (json['iceAccumulationSum'] ?? 0.0),
       moonriseTime: json['moonriseTime'] ?? "",
       moonsetTime: json['moonsetTime'] ?? "",
       precipitationProbabilityAvg: (json['precipitationProbabilityAvg'] is int)
           ? (json['precipitationProbabilityAvg'] as int).toDouble()
-          : json['precipitationProbabilityAvg'],
+          : (json['precipitationProbabilityAvg'] ?? 0.0),
       precipitationProbabilityMax: (json['precipitationProbabilityMax'] is int)
           ? (json['precipitationProbabilityMax'] as int).toDouble()
-          : json['precipitationProbabilityMax'],
+          : (json['precipitationProbabilityMax'] ?? 0.0),
       precipitationProbabilityMin: (json['precipitationProbabilityMin'] is int)
           ? (json['precipitationProbabilityMin'] as int).toDouble()
-          : json['precipitationProbabilityMin'],
+          : (json['precipitationProbabilityMin'] ?? 0.0),
       pressureSurfaceLevelAvg: (json['pressureSurfaceLevelAvg'] is int)
           ? (json['pressureSurfaceLevelAvg'] as int).toDouble()
-          : json['pressureSurfaceLevelAvg'],
+          : (json['pressureSurfaceLevelAvg'] ?? 0.0),
       pressureSurfaceLevelMax: (json['pressureSurfaceLevelMax'] is int)
           ? (json['pressureSurfaceLevelMax'] as int).toDouble()
-          : json['pressureSurfaceLevelMax'],
+          : (json['pressureSurfaceLevelMax'] ?? 0.0),
       pressureSurfaceLevelMin: (json['pressureSurfaceLevelMin'] is int)
           ? (json['pressureSurfaceLevelMin'] as int).toDouble()
-          : json['pressureSurfaceLevelMin'],
+          : (json['pressureSurfaceLevelMin'] ?? 0.0),
       rainAccumulationAvg: (json['rainAccumulationAvg'] is int)
           ? (json['rainAccumulationAvg'] as int).toDouble()
-          : json['rainAccumulationAvg'],
+          : (json['rainAccumulationAvg'] ?? 0.0),
       rainAccumulationLweAvg: (json['rainAccumulationLweAvg'] is int)
           ? (json['rainAccumulationLweAvg'] as int).toDouble()
-          : json['rainAccumulationLweAvg'],
+          : (json['rainAccumulationLweAvg'] ?? 0.0),
       rainAccumulationLweMax: (json['rainAccumulationLweMax'] is int)
           ? (json['rainAccumulationLweMax'] as int).toDouble()
-          : json['rainAccumulationLweMax'],
+          : (json['rainAccumulationLweMax'] ?? 0.0),
       rainAccumulationLweMin: (json['rainAccumulationLweMin'] is int)
           ? (json['rainAccumulationLweMin'] as int).toDouble()
-          : json['rainAccumulationLweMin'],
+          : (json['rainAccumulationLweMin'] ?? 0.0),
       rainAccumulationMax: (json['rainAccumulationMax'] is int)
           ? (json['rainAccumulationMax'] as int).toDouble()
-          : json['rainAccumulationMax'],
+          : (json['rainAccumulationMax'] ?? 0.0),
       rainAccumulationMin: (json['rainAccumulationMin'] is int)
           ? (json['rainAccumulationMin'] as int).toDouble()
-          : json['rainAccumulationMin'],
+          : (json['rainAccumulationMin'] ?? 0.0),
       rainAccumulationSum: (json['rainAccumulationSum'] is int)
           ? (json['rainAccumulationSum'] as int).toDouble()
-          : json['rainAccumulationSum'],
+          : (json['rainAccumulationSum'] ?? 0.0),
       rainIntensityAvg: (json['rainIntensityAvg'] is int)
           ? (json['rainIntensityAvg'] as int).toDouble()
-          : json['rainIntensityAvg'],
+          : (json['rainIntensityAvg'] ?? 0.0),
       rainIntensityMax: (json['rainIntensityMax'] is int)
           ? (json['rainIntensityMax'] as int).toDouble()
-          : json['rainIntensityMax'],
+          : (json['rainIntensityMax'] ?? 0.0),
       rainIntensityMin: (json['rainIntensityMin'] is int)
           ? (json['rainIntensityMin'] as int).toDouble()
-          : json['rainIntensityMin'],
+          : (json['rainIntensityMin'] ?? 0.0),
       sleetAccumulationAvg: (json['sleetAccumulationAvg'] is int)
           ? (json['sleetAccumulationAvg'] as int).toDouble()
-          : json['sleetAccumulationAvg'],
+          : (json['sleetAccumulationAvg'] ?? 0.0),
       sleetAccumulationLweAvg: (json['sleetAccumulationLweAvg'] is int)
           ? (json['sleetAccumulationLweAvg'] as int).toDouble()
-          : json['sleetAccumulationLweAvg'],
+          : (json['sleetAccumulationLweAvg'] ?? 0.0),
       sleetAccumulationLweMax: (json['sleetAccumulationLweMax'] is int)
           ? (json['sleetAccumulationLweMax'] as int).toDouble()
-          : json['sleetAccumulationLweMax'],
+          : (json['sleetAccumulationLweMax'] ?? 0.0),
       sleetAccumulationLweMin: (json['sleetAccumulationLweMin'] is int)
           ? (json['sleetAccumulationLweMin'] as int).toDouble()
-          : json['sleetAccumulationLweMin'],
+          : (json['sleetAccumulationLweMin'] ?? 0.0),
       sleetAccumulationLweSum: (json['sleetAccumulationLweSum'] is int)
           ? (json['sleetAccumulationLweSum'] as int).toDouble()
-          : json['sleetAccumulationLweSum'],
+          : (json['sleetAccumulationLweSum'] ?? 0.0),
       sleetAccumulationMax: (json['sleetAccumulationMax'] is int)
           ? (json['sleetAccumulationMax'] as int).toDouble()
-          : json['sleetAccumulationMax'],
+          : (json['sleetAccumulationMax'] ?? 0.0),
       sleetAccumulationMin: (json['sleetAccumulationMin'] is int)
           ? (json['sleetAccumulationMin'] as int).toDouble()
-          : json['sleetAccumulationMin'],
+          : (json['sleetAccumulationMin'] ?? 0.0),
       sleetIntensityAvg: (json['sleetIntensityAvg'] is int)
           ? (json['sleetIntensityAvg'] as int).toDouble()
-          : json['sleetIntensityAvg'],
+          : (json['sleetIntensityAvg'] ?? 0.0),
       sleetIntensityMax: (json['sleetIntensityMax'] is int)
           ? (json['sleetIntensityMax'] as int).toDouble()
-          : json['sleetIntensityMax'],
+          : (json['sleetIntensityMax'] ?? 0.0),
       sleetIntensityMin: (json['sleetIntensityMin'] is int)
           ? (json['sleetIntensityMin'] as int).toDouble()
-          : json['sleetIntensityMin'],
+          : (json['sleetIntensityMin'] ?? 0.0),
       snowAccumulationAvg: (json['snowAccumulationAvg'] is int)
           ? (json['snowAccumulationAvg'] as int).toDouble()
-          : json['snowAccumulationAvg'],
+          : (json['snowAccumulationAvg'] ?? 0.0),
       snowAccumulationLweAvg: (json['snowAccumulationLweAvg'] is int)
           ? (json['snowAccumulationLweAvg'] as int).toDouble()
-          : json['snowAccumulationLweAvg'],
+          : (json['snowAccumulationLweAvg'] ?? 0.0),
       snowAccumulationLweMax: (json['snowAccumulationLweMax'] is int)
           ? (json['snowAccumulationLweMax'] as int).toDouble()
-          : json['snowAccumulationLweMax'],
+          : (json['snowAccumulationLweMax'] ?? 0.0),
       snowAccumulationLweMin: (json['snowAccumulationLweMin'] is int)
           ? (json['snowAccumulationLweMin'] as int).toDouble()
-          : json['snowAccumulationLweMin'],
+          : (json['snowAccumulationLweMin'] ?? 0.0),
       snowAccumulationLweSum: (json['snowAccumulationLweSum'] is int)
           ? (json['snowAccumulationLweSum'] as int).toDouble()
-          : json['snowAccumulationLweSum'],
+          : (json['snowAccumulationLweSum'] ?? 0.0),
       snowAccumulationMax: (json['snowAccumulationMax'] is int)
           ? (json['snowAccumulationMax'] as int).toDouble()
-          : json['snowAccumulationMax'],
+          : (json['snowAccumulationMax'] ?? 0.0),
       snowAccumulationMin: (json['snowAccumulationMin'] is int)
           ? (json['snowAccumulationMin'] as int).toDouble()
-          : json['snowAccumulationMin'],
+          : (json['snowAccumulationMin'] ?? 0.0),
       snowAccumulationSum: (json['snowAccumulationSum'] is int)
           ? (json['snowAccumulationSum'] as int).toDouble()
-          : json['snowAccumulationSum'],
+          : (json['snowAccumulationSum'] ?? 0.0),
       snowIntensityAvg: (json['snowIntensityAvg'] is int)
           ? (json['snowIntensityAvg'] as int).toDouble()
-          : json['snowIntensityAvg'],
+          : (json['snowIntensityAvg'] ?? 0.0),
       snowIntensityMax: (json['snowIntensityMax'] is int)
           ? (json['snowIntensityMax'] as int).toDouble()
-          : json['snowIntensityMax'],
+          : (json['snowIntensityMax'] ?? 0.0),
       snowIntensityMin: (json['snowIntensityMin'] is int)
           ? (json['snowIntensityMin'] as int).toDouble()
-          : json['snowIntensityMin'],
+          : (json['snowIntensityMin'] ?? 0.0),
       sunriseTime: json['sunriseTime'] ?? "",
       sunsetTime: json['sunsetTime'] ?? "",
       temperatureApparentAvg: (json['temperatureApparentAvg'] is int)
           ? (json['temperatureApparentAvg'] as int).toDouble()
-          : json['temperatureApparentAvg'],
+          : (json['temperatureApparentAvg'] ?? 0.0),
       temperatureApparentMax: (json['temperatureApparentMax'] is int)
           ? (json['temperatureApparentMax'] as int).toDouble()
-          : json['temperatureApparentMax'],
+          : (json['temperatureApparentMax'] ?? 0.0),
       temperatureApparentMin: (json['temperatureApparentMin'] is int)
           ? (json['temperatureApparentMin'] as int).toDouble()
-          : json['temperatureApparentMin'],
+          : (json['temperatureApparentMin'] ?? 0.0),
       temperatureAvg: (json['temperatureAvg'] is int)
           ? (json['temperatureAvg'] as int).toDouble()
-          : json['temperatureAvg'],
+          : (json['temperatureAvg'] ?? 0.0),
       temperatureMax: (json['temperatureMax'] is int)
           ? (json['temperatureMax'] as int).toDouble()
-          : json['temperatureMax'],
+          : (json['temperatureMax'] ?? 0.0),
       temperatureMin: (json['temperatureMin'] is int)
           ? (json['temperatureMin'] as int).toDouble()
-          : json['temperatureMin'],
+          : (json['temperatureMin'] ?? 0.0),
       uvHealthConcernAvg: (json['uvHealthConcernAvg'] is int)
           ? (json['uvHealthConcernAvg'] as int).toDouble()
-          : json['uvHealthConcernAvg'],
+          : (json['uvHealthConcernAvg'] ?? 0.0),
       uvHealthConcernMax: (json['uvHealthConcernMax'] is int)
           ? (json['uvHealthConcernMax'] as int).toDouble()
-          : json['uvHealthConcernMax'],
+          : (json['uvHealthConcernMax'] ?? 0.0),
       uvHealthConcernMin: (json['uvHealthConcernMin'] is int)
           ? (json['uvHealthConcernMin'] as int).toDouble()
-          : json['uvHealthConcernMin'],
+          : (json['uvHealthConcernMin'] ?? 0.0),
       uvIndexAvg: (json['uvIndexAvg'] is int)
           ? (json['uvIndexAvg'] as int).toDouble()
-          : json['uvIndexAvg'],
+          : (json['uvIndexAvg'] ?? 0.0),
       uvIndexMax: (json['uvIndexMax'] is int)
           ? (json['uvIndexMax'] as int).toDouble()
-          : json['uvIndexMax'],
+          : (json['uvIndexMax'] ?? 0.0),
       uvIndexMin: (json['uvIndexMin'] is int)
           ? (json['uvIndexMin'] as int).toDouble()
-          : json['uvIndexMin'],
+          : (json['uvIndexMin'] ?? 0.0),
       visibilityAvg: (json['visibilityAvg'] is int)
           ? (json['visibilityAvg'] as int).toDouble()
-          : json['visibilityAvg'],
+          : (json['visibilityAvg'] ?? 0.0),
       visibilityMax: (json['visibilityMax'] is int)
           ? (json['visibilityMax'] as int).toDouble()
-          : json['visibilityMax'],
+          : (json['visibilityMax'] ?? 0.0),
       visibilityMin: (json['visibilityMin'] is int)
           ? (json['visibilityMin'] as int).toDouble()
-          : json['visibilityMin'],
+          : (json['visibilityMin'] ?? 0.0),
       weatherCodeMax: json['weatherCodeMax'] ?? 0,
       weatherCodeMin: json['weatherCodeMin'] ?? 0,
       windDirectionAvg: (json['windDirectionAvg'] is int)
           ? (json['windDirectionAvg'] as int).toDouble()
-          : json['windDirectionAvg'],
+          : (json['windDirectionAvg'] ?? 0.0),
       windGustAvg: (json['windGustAvg'] is int)
           ? (json['windGustAvg'] as int).toDouble()
-          : json['windGustAvg'],
+          : (json['windGustAvg'] ?? 0.0),
       windGustMax: (json['windGustMax'] is int)
           ? (json['windGustMax'] as int).toDouble()
-          : json['windGustMax'],
+          : (json['windGustMax'] ?? 0.0),
       windGustMin: (json['windGustMin'] is int)
           ? (json['windGustMin'] as int).toDouble()
-          : json['windGustMin'],
+          : (json['windGustMin'] ?? 0.0),
       windSpeedAvg: (json['windSpeedAvg'] is int)
           ? (json['windSpeedAvg'] as int).toDouble()
-          : json['windSpeedAvg'],
+          : (json['windSpeedAvg'] ?? 0.0),
       windSpeedMax: (json['windSpeedMax'] is int)
           ? (json['windSpeedMax'] as int).toDouble()
-          : json['windSpeedMax'],
+          : (json['windSpeedMax'] ?? 0.0),
       windSpeedMin: (json['windSpeedMin'] is int)
           ? (json['windSpeedMin'] as int).toDouble()
-          : json['windSpeedMin'],
+          : (json['windSpeedMin'] ?? 0.0),
     );
   }
 }
